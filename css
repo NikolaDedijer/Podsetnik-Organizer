@@ -6,6 +6,7 @@ table {
     background-color: #d0d7da;
     border-radius: 5px;
 }
+
 th,
 td {
     text-align: left;
@@ -77,14 +78,19 @@ tr:nth-child(even) {
     background: #3CBC8D;
 }
 
-#fff:hover {
+.fff:hover {
     background-color: #807d7c
 }
 
-#fff:active {
+.fff:active {
     background-color: #ece2df;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}
+
+.far,
+.fas {
+    color: #04AA6D;
 }
 
 

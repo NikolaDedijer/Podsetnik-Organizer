@@ -25,7 +25,8 @@ tr:nth-child(even) {
 
 #fname,
 #tname,
-#dname {
+#dname,
+#oname {
     width: 50%;
     color: white;
     padding: 14px 20px;
@@ -118,9 +119,7 @@ tr:nth-child(even) {
     width: 7px;
 }
 
-.zavrsi {
-    background-color:
-}
+.zavrsi {}
 
 html {
     background-color: rgb(59, 57, 57);
@@ -248,7 +247,7 @@ span.psw {
 
 .animate {
     -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
+    animation: animatezoom 1s
 }
 
 @-webkit-keyframes animatezoom {
@@ -280,4 +279,10 @@ span.psw {
     .cancelbtn {
         width: 100%;
     }
+}
+
+#obavestenje {
+    float: right;
+    margin-right: 20%;
+    margin-top: 5%;
 }

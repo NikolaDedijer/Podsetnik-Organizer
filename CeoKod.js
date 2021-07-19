@@ -1,3 +1,13 @@
+var table;
+var row;
+var cell1;
+var cell2;
+var cell3;
+var cell4;
+var cell5;
+var boja;
+
+
 //LOGIN
 var ime = "biljana";
 var pass = 12345;
@@ -27,10 +37,19 @@ function logIn() {
 
 
 
-
-//reset funkcija
+//reset input polja funkcija
 function funkcijaF() {
     document.getElementById("rt").reset();
+}
+
+
+//funkcija da oboji prazno input polje
+document.querySelectorAll('input[type="text"]').forEach(e => {
+    e.addEventListener('focusout', setInputBackground)
+});
+
+function setInputBackground() {
+    this.style.backgroundColor = !!this.value ? "#3CBC8D" : "red";
 }
 
 
@@ -43,14 +62,15 @@ function myFunction() {
     var poljeTri = document.getElementById("dname").value;
     if (polje === '' || poljeDva === '' || poljeTri === '' || polje === '' && poljeDva === '' || polje === '' && poljeTri === '' || poljeDva === '' && poljeTri === '') {
         alert("Niste popunili sva polja!");
+
     } else {
-        var table = document.getElementById("myTable");
-        var row = table.insertRow(-1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
+        table = document.getElementById("myTable");
+        row = table.insertRow(-1);
+        cell1 = row.insertCell(0);
+        cell2 = row.insertCell(1);
+        cell3 = row.insertCell(2);
+        cell4 = row.insertCell(3);
+        cell5 = row.insertCell(4);
 
         var danuNedelji = new Array(7);
         danuNedelji[0] = "Sun";
@@ -62,15 +82,14 @@ function myFunction() {
         danuNedelji[6] = "Sat";
 
         var today = new Date();
-        var date = danuNedelji[today.getDay()] + ' ' + today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear() + "<br>";
-        var time = today.getHours() + ":" + today.getMinutes();
+        var date = '<i class="far fa-calendar-alt"></i>' + ' ' + danuNedelji[today.getDay()] + ' ' + today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear().toString().substr(-2) + "<br>";
+        var time = '<i class="far fa-clock"></i>' + ' ' + today.getHours() + ":" + today.getMinutes();
         var dateTime = date + '  ' + time;
 
         cell1.innerHTML = document.Z.ime.value;
         cell2.innerHTML = document.Z.kontakt.value;
         cell3.innerHTML = document.Z.komentar.value;
         cell4.innerHTML = dateTime;
-        //cell5.innerHTML = '<span style="cursor: pointer;" class="close">&times;</span>'
         cell5.innerHTML = '<span style="cursor: pointer;" class="fas fa-trash-alt fa-border fa-1x"></span>'
 
 
@@ -83,13 +102,20 @@ function myFunction() {
                 this.style.textDecoration = "line-through";
                 this.style.backgroundColor = "yellow";
 
+                alert("objekat:", i);
 
-                var counter2 = localStorage.getItem('counter2');
-                counter2++;
-                localStorage.setItem("boja" + counter2, "yellow");
-                localStorage.setItem('counter2', counter2);
+                var ob = localStorage.getItem("objekat:" + i);
+                ob = JSON.parse(ob);
+                for (var i = 0; i < ob.length; i++) {
+                    if (a === ob[i].a) { //look for match with name
+                        ob[i].bo += 2; //add two
+                        break; //exit loop since you found the person
+                    }
+                }
+                localStorage.setItem("objekat:", JSON.stringify(ob)); //put the object back
 
             });
+
         }
 
 
@@ -100,7 +126,7 @@ function myFunction() {
             b: cell2.innerHTML,
             c: cell3.innerHTML,
             d: cell4.innerHTML,
-            //e: stil //row.style.backgroundColor
+            status: ""
         }
         var counter = localStorage.getItem('counter');
         counter++;
@@ -118,7 +144,6 @@ function myFunction() {
 
 
 
-
         //BRISANJE kolone
         cell5.className = "ja";
         var zatvori = document.getElementsByClassName("ja");
@@ -131,12 +156,34 @@ function myFunction() {
 
         }
 
-
     }
+
 }
 
-
-
+//var niz = [];
+//
+//function myF() {
+//
+//    var today = new Date();
+//    var dan = today.getDate();
+//
+//    var mesec = today.getMonth() + 1;
+//    var date = dan + '.' + mesec;
+//
+//    cell1.className = "ti";
+//    var niz = [];
+//    //cell1.setAttribute('class', 'ti');
+//    var ddd = document.querySelectorAll("cell1[innerHTML]");
+//    //for (var i = 0; i < ddd.length; i++) {
+//    niz.push(ddd);
+//
+//    console.log(niz);
+//
+//
+//    document.getElementById("tekst").innerHTML = niz;
+//
+//
+//}
 
 
 
@@ -169,14 +216,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var counter = localStorage.getItem("counter");
 
-    for (let i = 1; i <= counter; i++) {
-        var table = document.getElementById("myTable");
-        var row = table.insertRow(-1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
+    for (var i = 1; i <= counter; i++) {
+        table = document.getElementById("myTable");
+        row = table.insertRow(-1);
+        cell1 = row.insertCell(0);
+        cell2 = row.insertCell(1);
+        cell3 = row.insertCell(2);
+        cell4 = row.insertCell(3);
+        cell5 = row.insertCell(4);
 
         cell5.className = "ja";
         row.className = "fff";
@@ -191,11 +238,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
         cell2.innerHTML = rowFromStorage.b;
         cell3.innerHTML = rowFromStorage.c;
         cell4.innerHTML = rowFromStorage.d;
-        //cell5.innerHTML = '<span style="cursor: pointer;" class="close">&times;</span>'
         cell5.innerHTML = '<span style="cursor: pointer;" class="fas fa-trash-alt fa-border fa-1x"></span>'
 
-        row.style.backgroundColor = localStorage.getItem("boja" + i);
 
+
+
+        var counter2 = localStorage.getItem("counter2");
+        for (let i = 1; i <= counter2; i++) {
+            var bojaFromStorage = localStorage.getItem("boja" + i);
+            bojaFromStorage = JSON.parse(bojaFromStorage);
+            row.style.backgroundColor = bojaFromStorage;
+        }
 
         //rad sa redovima
         var otvori = document.getElementsByClassName("fff");

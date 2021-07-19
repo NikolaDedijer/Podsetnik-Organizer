@@ -9,42 +9,47 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 </head>
 
-<body><br>
+<body onload="myF()"><br>
+
     <div class="weatherWidget"></div>
 
 
-    <p style="font-size: 20px" ; align="center" ;><b>Moj organizer<b></p>
-	
-  <div id="id01" class="modal1"><br>
-	<form name="Z" id="rt">
-	<input type="text" id="fname" name="ime" placeholder="Unesi ime...">
-	<input type="text" id="tname" name="kontakt" placeholder="Unesi kontakt..."> <br>
-	<input type="text" id="dname" name="komentar" placeholder="Unesi komentar..."> <br><br>
-	</form>
+    <div id="obavestenje">
+        <span><i class="far fa-bell fa-6x"></i></span>
+        <p id="tekst"></p>
+    </div>
 
-  
 
-<table id="myTable">
-  <tr>
-    <td>Ime<i class='fas fa-address-book fa-pull-left fa-1x'></i></td>
-    <td>Kontakt<i class='fas fa-mobile-alt fa-pull-left fa-1x'></i></td>
-	<td>Komentar<i class='fas fa-comments fa-pull-left fa-1x'></i></td>
-	<td>vreme unosa<i class='fas fa-calendar-alt fa-pull-left fa-1x'></i></td>
-  </tr>
-</table>
-<br><br><br>
-
-<button class="dugme1" type="button" onclick="myFunction()">Dodaj u tabelu<i class='far fa-plus-square fa-pull-left fa-1x'></i></button>
-<button class="dugme1" type="button" onclick="funkcijaF()">Novi unos</button>
-</div>
+    <div id="id01" class="modal1"><br>
+        <form name="Z" id="rt">
+            <input type="text" id="fname" name="ime" placeholder="Unesi ime...">
+            <input type="text" id="tname" name="kontakt" placeholder="Unesi kontakt..."> <br>
+            <input type="text" id="dname" name="komentar" placeholder="Unesi komentar..."> <br><br>
+        </form>
 
 
 
 
+        <table id="myTable">
+            <tr>
+                <td>Ime<i class='fas fa-address-book fa-pull-left fa-1x'></i></td>
+                <td>Kontakt<i class='fas fa-mobile-alt fa-pull-left fa-1x'></i></td>
+                <td>Komentar<i class='fas fa-comments fa-pull-left fa-1x'></i></td>
+                <td>vreme unosa<i class='fas fa-calendar-alt fa-pull-left fa-1x'></i></td>
+            </tr>
+        </table>
+        <br><br><br>
+
+        <button class="dugme1" type="button" onclick="myFunction()">Sacuvaj<i class='fas fa-save fa-pull-left fa-1x'></i></button>
+        <button class="dugme1" type="button" onclick="funkcijaF()">Novi unos</button>
+    </div>
 
 
 
-  
+
+
+
+
 
     <div id="id02" class="modal">
 
@@ -55,27 +60,26 @@
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-        <input type="text" id="username" placeholder="Username" name="uname" required><br>
+                <input type="text" id="username" placeholder="Username" name="uname" required><br>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" id="password" placeholder="Password" name="psw" required><br>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Password" name="psw" required><br>
 
-        <button type="submit" id="dugme2" align="center" onclick="logIn()">Login</button><br>
-        <label>
+                <button type="submit" id="dugme2" align="center" onclick="logIn()">Login</button><br>
+                <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
-        </div>
+            </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
         </form>
-        </div>
+    </div>
 
 
 
-
-        <script src="podsetnik.js"></script>
+    <script src="podsetnik.js"></script>
 
 </body>
 

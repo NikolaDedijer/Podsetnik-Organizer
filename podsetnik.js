@@ -5,7 +5,7 @@ var cell2;
 var cell3;
 var cell4;
 var cell5;
-var boja;
+var objekat = {};
 
 
 //LOGIN
@@ -34,6 +34,7 @@ function logIn() {
         alert("Niste ispravno uneli username ili password");
     }
 }
+
 
 
 
@@ -94,53 +95,39 @@ function myFunction() {
 
 
 
-        //rad sa redovima
-        row.className = "fff";
-        var otvori = document.getElementsByClassName("fff");
-        for (let i = 0; i < otvori.length; i++) {
-            otvori[i].addEventListener("click", function(_element) {
-                this.style.textDecoration = "line-through";
-                this.style.backgroundColor = "yellow";
-
-                alert("objekat:", i);
-
-                var ob = localStorage.getItem("objekat:" + i);
-                ob = JSON.parse(ob);
-                for (var i = 0; i < ob.length; i++) {
-                    if (a === ob[i].a) { //look for match with name
-                        ob[i].bo += 2; //add two
-                        break; //exit loop since you found the person
-                    }
-                }
-                localStorage.setItem("objekat:", JSON.stringify(ob)); //put the object back
-
-            });
-
-        }
-
-
-
         //Ubacivanje podataka u localstorage
-        var objekat = {
+        objekat = {
             a: cell1.innerHTML,
             b: cell2.innerHTML,
             c: cell3.innerHTML,
             d: cell4.innerHTML,
-            status: ""
         }
         var counter = localStorage.getItem('counter');
         counter++;
         localStorage.setItem('objekat:' + counter, JSON.stringify(objekat));
         localStorage.setItem('counter', counter);
 
+        console.log(objekat, counter);
 
+        //rad sa redovima
+        row.className = "fff";
+        var oboji = document.getElementsByClassName("fff");
+        for (let i = 0; i < oboji.length; i++) {
+            oboji[i].addEventListener("click", function(_element) {
+                this.style.textDecoration = "line-through";
+                this.style.backgroundColor = "#6d556d";
+                this.style.color = "red";
 
+                var t = localStorage.getItem('objekat:' + (i + 1));
+                var e = JSON.parse(t);
 
-        //funkcija za umanjenje broja na counteru
-        //function umanjiCounter() {
-        //    var counterManje = counter - 1;
-        //    localStorage.setItem('counter', counterManje);
-        //}
+                var novaOsobina = { col: "#6d556d", text: "line-through", textcolor: "red" };
+                e = {...e, ...novaOsobina };
+                // Object.assign(e, { col: "#6d556d", text: "line-through", textcolor: "red" });
+                localStorage.setItem('objekat:' + (i + 1), JSON.stringify(e));
+            });
+
+        }
 
 
 
@@ -151,14 +138,21 @@ function myFunction() {
             zatvori[i].addEventListener("click", function brisanje() {
                 this.parentElement.style.display = 'none';
 
-                // umanjiCounter();
+                //localStorage.setItem('counter', counter - 1);
+                //localStorage.removeItem('objekat:' + (i + 1));
+                //var f = localStorage.getItem('objekat:' + (i + 1));
+                //var hh = JSON.parse(f);
+                //localStorage.removeItem(hh);
             });
-
         }
 
     }
 
 }
+
+
+
+
 
 //var niz = [];
 //
@@ -233,29 +227,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         console.log(rowFromStorage);
 
-
         cell1.innerHTML = rowFromStorage.a;
         cell2.innerHTML = rowFromStorage.b;
         cell3.innerHTML = rowFromStorage.c;
         cell4.innerHTML = rowFromStorage.d;
         cell5.innerHTML = '<span style="cursor: pointer;" class="fas fa-trash-alt fa-border fa-1x"></span>'
+        row.style.backgroundColor = rowFromStorage.col;
+        row.style.textDecoration = rowFromStorage.text;
+        row.style.color = rowFromStorage.textcolor;
 
 
-
-
-        var counter2 = localStorage.getItem("counter2");
-        for (let i = 1; i <= counter2; i++) {
-            var bojaFromStorage = localStorage.getItem("boja" + i);
-            bojaFromStorage = JSON.parse(bojaFromStorage);
-            row.style.backgroundColor = bojaFromStorage;
-        }
 
         //rad sa redovima
-        var otvori = document.getElementsByClassName("fff");
-        for (let i = 0; i < otvori.length; i++) {
-            otvori[i].addEventListener("click", function(_element) {
+        var oboji = document.getElementsByClassName("fff");
+        for (let i = 0; i < oboji.length; i++) {
+            oboji[i].addEventListener("click", function(_element) {
                 this.style.textDecoration = "line-through";
-                this.style.backgroundColor = "yellow";
+                this.style.backgroundColor = "#6d556d";
+                this.style.color = "red";
+
+                var t = localStorage.getItem('objekat:' + i);
+                var e = JSON.parse(t);
+
+                var novaOsobina = { col: "#6d556d", text: "line-through", textcolor: "red" };
+                e = {...e, ...novaOsobina };
+                //Object.assign(e, { col: "#6d556d", text: "line-through", textcolor: "red" });
+                localStorage.setItem('objekat:' + (i + 1), JSON.stringify(e));
             });
         }
 
@@ -268,7 +265,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             zatvori[i].addEventListener("click", function brisanje() {
                 this.parentElement.style.display = 'none';
 
-                // umanjiCounter();
+                //localStorage.setItem('counter', counter - 1);
+                //localStorage.removeItem('objekat:' + (i + 1));
+                //var f = localStorage.getItem('objekat:' + (i + 1));
+                //var hh = JSON.parse(f);
+                //localStorage.removeItem(hh);
             });
 
         }

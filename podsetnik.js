@@ -6,6 +6,7 @@ var cell3;
 var cell4;
 var cell5;
 var objekat = {};
+var obj = {};
 
 
 //LOGIN
@@ -138,11 +139,20 @@ function myFunction() {
             zatvori[i].addEventListener("click", function brisanje() {
                 this.parentElement.style.display = 'none';
 
-                //localStorage.setItem('counter', counter - 1);
+
+                var ddd = 'objekat:' + counter;
+                console.log(ddd);
                 //localStorage.removeItem('objekat:' + (i + 1));
-                //var f = localStorage.getItem('objekat:' + (i + 1));
-                //var hh = JSON.parse(f);
-                //localStorage.removeItem(hh);
+                var bbb = localStorage.getItem('objekat:' + counter);
+                obj = JSON.parse(bbb);
+                localStorage.removeItem('objekat:' + counter);
+                localStorage.removeItem('counter');
+
+                localStorage.setItem('counter', counter);
+                localStorage.setItem('objekat:' + counter, JSON.stringify(obj));
+                console.log(obj);
+                //n();
+
             });
         }
 
@@ -153,13 +163,12 @@ function myFunction() {
 
 
 
-
 //var niz = [];
 //
 //function myF() {
 //
 //    var today = new Date();
-//    var dan = today.getDate();
+//    var dan = today.getDate();    
 //
 //    var mesec = today.getMonth() + 1;
 //    var date = dan + '.' + mesec;
@@ -265,11 +274,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
             zatvori[i].addEventListener("click", function brisanje() {
                 this.parentElement.style.display = 'none';
 
-                //localStorage.setItem('counter', counter - 1);
-                //localStorage.removeItem('objekat:' + (i + 1));
-                //var f = localStorage.getItem('objekat:' + (i + 1));
-                //var hh = JSON.parse(f);
-                //localStorage.removeItem(hh);
+                localStorage.removeItem('objekat:' + (i + 1));
+                var f = localStorage.getItem('objekat:' + (i + 1));
+                var hh = JSON.parse(f);
+                localStorage.removeItem(hh);
+                var counter = localStorage.getItem('counter', counter - 1);
+                localStorage.setItem('objekat:' + counter, JSON.stringify(objekat));
             });
 
         }

@@ -9,14 +9,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 </head>
 
-<body onload="myF()"><br>
+<body onload="ispuni()"><br>
 
     <div class="weatherWidget"></div>
 
 
     <div id="obavestenje">
-        <span><i class="far fa-bell fa-6x"></i></span>
-        <p id="tekst"></p>
+        <div id="prvidiv">
+            <span><i class="far fa-calendar-check fa-5x"></i></span>
+            <!--
+                fa fa-pencil-square-o fa-5x
+                <i class="far fa-calendar-check"></i>
+            "far fa-bell fa-6x"
+            --->
+        </div>
+        <div id="drugidiv">
+            <p id="tekst"></p>
+        </div>
     </div>
 
 
@@ -50,7 +59,6 @@
 
 
 
-
     <div id="id02" class="modal">
 
         <form class="modal-content animate" id="id02" action="/action_page.php" method="post">
@@ -65,7 +73,7 @@
                 <label for="psw"><b>Password</b></label>
                 <input type="password" id="password" placeholder="Password" name="psw" required><br>
 
-                <button type="submit" id="dugme2" align="center" onclick="logIn()">Login</button><br>
+                <button type="submit" id="dugme2" align="center" onclick="logIn();nikola()">Login</button><br>
                 <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
@@ -76,7 +84,6 @@
             </div>
         </form>
     </div>
-
 
 
     <script src="podsetnik.js"></script>

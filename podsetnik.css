@@ -90,7 +90,8 @@ tr:nth-child(even) {
 }
 
 .far,
-.fas {
+.fas,
+.fa {
     color: #04AA6D;
 }
 
@@ -283,6 +284,12 @@ span.psw {
 
 #obavestenje {
     float: right;
-    margin-right: 20%;
+    margin-right: 18%;
     margin-top: 5%;
+    font-size: 18px;
+}
+
+#prvidiv,
+#drugidiv {
+    text-align: center;
 }

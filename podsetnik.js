@@ -6,7 +6,16 @@ var cell3;
 var cell4;
 var cell5;
 var objekat = {};
-var obj = {};
+var obj = [{}];
+
+var danuNedelji = new Array(7);
+danuNedelji[0] = "Sun";
+danuNedelji[1] = "Mon";
+danuNedelji[2] = "Thu";
+danuNedelji[3] = "Wen";
+danuNedelji[4] = "Thu";
+danuNedelji[5] = "Fri";
+danuNedelji[6] = "Sat";
 
 
 //LOGIN
@@ -74,15 +83,6 @@ function myFunction() {
         cell4 = row.insertCell(3);
         cell5 = row.insertCell(4);
 
-        var danuNedelji = new Array(7);
-        danuNedelji[0] = "Sun";
-        danuNedelji[1] = "Mon";
-        danuNedelji[2] = "Thu";
-        danuNedelji[3] = "Wen";
-        danuNedelji[4] = "Thu";
-        danuNedelji[5] = "Fri";
-        danuNedelji[6] = "Sat";
-
         var today = new Date();
         var date = '<i class="far fa-calendar-alt"></i>' + ' ' + danuNedelji[today.getDay()] + ' ' + today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear().toString().substr(-2) + "<br>";
         var time = '<i class="far fa-clock"></i>' + ' ' + today.getHours() + ":" + today.getMinutes();
@@ -131,7 +131,6 @@ function myFunction() {
         }
 
 
-
         //BRISANJE kolone
         cell5.className = "ja";
         var zatvori = document.getElementsByClassName("ja");
@@ -139,59 +138,42 @@ function myFunction() {
             zatvori[i].addEventListener("click", function brisanje() {
                 this.parentElement.style.display = 'none';
 
-
-                var ddd = 'objekat:' + counter;
-                console.log(ddd);
-                //localStorage.removeItem('objekat:' + (i + 1));
-                var bbb = localStorage.getItem('objekat:' + counter);
-                obj = JSON.parse(bbb);
-                localStorage.removeItem('objekat:' + counter);
-                localStorage.removeItem('counter');
-
-                localStorage.setItem('counter', counter);
-                localStorage.setItem('objekat:' + counter, JSON.stringify(obj));
+                localStorage.removeItem('objekat:' + (i + 1))
+                let data = localStorage.getItem('objekat:' + counter);
+                console.log(data);
+                for (var member in objekat) delete objekat[member];
+                localStorage.setItem('counter', counter - 1);
+                obj = JSON.parse(data);
                 console.log(obj);
-                //n();
-
+                // localStorage.setItem('objekat:' + i, data);
             });
+
         }
+
+        //
+        //
+        //             var ddd = 'objekat:' + counter;
+        //             console.log(ddd);
+        //             //localStorage.removeItem('objekat:' + (i + 1));
+        //             var bbb = localStorage.getItem('objekat:' + counter);
+        //             obj = JSON.parse(bbb);
+        //             localStorage.removeItem('objekat:' + counter);
+        //             localStorage.removeItem('counter');
+        //
+        //             localStorage.setItem('counter', counter);
+        //             localStorage.setItem('objekat:' + counter, JSON.stringify(obj));
+        //             console.log(obj);
+        //             //n();
+        //
+        //         });
+        //     }
 
     }
 
 }
 
 
-
-
-//var niz = [];
-//
-//function myF() {
-//
-//    var today = new Date();
-//    var dan = today.getDate();    
-//
-//    var mesec = today.getMonth() + 1;
-//    var date = dan + '.' + mesec;
-//
-//    cell1.className = "ti";
-//    var niz = [];
-//    //cell1.setAttribute('class', 'ti');
-//    var ddd = document.querySelectorAll("cell1[innerHTML]");
-//    //for (var i = 0; i < ddd.length; i++) {
-//    niz.push(ddd);
-//
-//    console.log(niz);
-//
-//
-//    document.getElementById("tekst").innerHTML = niz;
-//
-//
-//}
-
-
-
 //vremenska prognoza
-
 window.weatherWidgetConfig = window.weatherWidgetConfig || [];
 window.weatherWidgetConfig.push({
     selector: ".weatherWidget",
@@ -211,6 +193,7 @@ window.weatherWidgetConfig.push({
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();
+
 
 
 
@@ -287,3 +270,34 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
 });
+
+function ispuni() {
+    var mesecuGodini = new Array(12);
+    mesecuGodini[0] = "January";
+    mesecuGodini[1] = "February";
+    mesecuGodini[2] = "March";
+    mesecuGodini[3] = "April";
+    mesecuGodini[4] = "May";
+    mesecuGodini[5] = "June";
+    mesecuGodini[6] = "July";
+    mesecuGodini[7] = "August";
+    mesecuGodini[8] = "September";
+    mesecuGodini[9] = "October";
+    mesecuGodini[10] = "November";
+    mesecuGodini[11] = "December";
+
+    var today = new Date();
+    var date = danuNedelji[today.getDay()] + ' ' + today.getDate() + '.' + ' ' + mesecuGodini[today.getMonth()];
+
+    document.getElementById("tekst").innerHTML = date;
+}
+
+
+function nikola() {
+    var tab = document.getElementById("myTable");
+    var n = tab.rows.length;
+    console.log(n);
+    var v = n.cells.length;
+    console.log(v);
+
+}

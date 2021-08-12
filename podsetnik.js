@@ -5,8 +5,7 @@ var cell2;
 var cell3;
 var cell4;
 var cell5;
-var objekat = {};
-var obj = [{}];
+var obj = [];
 
 var danuNedelji = new Array(7);
 danuNedelji[0] = "Sun";
@@ -110,6 +109,9 @@ function myFunction() {
 
         console.log(objekat, counter);
 
+        obj.push(objekat);
+        console.log(obj);
+
         //rad sa redovima
         row.className = "fff";
         var oboji = document.getElementsByClassName("fff");
@@ -130,7 +132,6 @@ function myFunction() {
 
         }
 
-
         //BRISANJE kolone
         cell5.className = "ja";
         var zatvori = document.getElementsByClassName("ja");
@@ -138,16 +139,19 @@ function myFunction() {
             zatvori[i].addEventListener("click", function brisanje() {
                 this.parentElement.style.display = 'none';
 
-                localStorage.removeItem('objekat:' + (i + 1))
-                let data = localStorage.getItem('objekat:' + counter);
-                console.log(data);
-                for (var member in objekat) delete objekat[member];
-                localStorage.setItem('counter', counter - 1);
-                obj = JSON.parse(data);
+                localStorage.removeItem('objekat:' + (i + 1));
                 console.log(obj);
-                // localStorage.setItem('objekat:' + i, data);
-            });
+                for (let i = 0; i < localStorage.length; i++) {
 
+                    let redovi = localStorage.getItem('objekat:' + i);
+                    console.log(redovi);
+                    delete obj;
+                    let rodovi = JSON.parse(redovi);
+                    obj.push(rodovi);
+                    console.log(obj);
+                    localStorage.setItem('objekat:' + counter, JSON.stringify(obj));
+                }
+            });
         }
 
         //
@@ -171,6 +175,7 @@ function myFunction() {
     }
 
 }
+
 
 
 //vremenska prognoza
@@ -271,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 });
 
+//funkcija za prikaz danasnjeg datuma
 function ispuni() {
     var mesecuGodini = new Array(12);
     mesecuGodini[0] = "January";
@@ -292,12 +298,37 @@ function ispuni() {
     document.getElementById("tekst").innerHTML = date;
 }
 
+//funkcija za obavestenje o danasnjim obavezama
+let today = new Date();
+let dan = today.getDate();
+let mesec = (today.getMonth() + 1);
+let godina = today.getFullYear();
+let vreme = dan + '.' + mesec + '.' + godina;
+let dani = vreme.toString();
+console.log(dani);
+let dana = dani.substring(0, 4);
+console.log(dana);
+
+var niz = [];
 
 function nikola() {
-    var tab = document.getElementById("myTable");
-    var n = tab.rows.length;
-    console.log(n);
-    var v = n.cells.length;
-    console.log(v);
+    let cerka = document.getElementById("myTable").rows;
+    for (let i = 1; i < cerka.length; i++) {
+        let data = cerka[i].cells[0].innerHTML;
+        console.log(data);
+        niz.push(data);
+    }
+    console.log(niz);
 
+    let nadji = niz.find(element => element.substring(0, 4) === dana);
+    if (typeof nadji === 'undefined') {
+        alert("U danasnjem danu nemate obaveza");
+    }
+    let nasao = nadji.substring(0, 4);
+
+    if (nasao === dana) {
+        alert("Pogledajte zabeleske jer u danasnjem danu imate obaveza");
+    } else {
+        alert("U danasnjem danu nemate obaveza");
+    }
 }

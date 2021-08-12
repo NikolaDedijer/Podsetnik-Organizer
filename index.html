@@ -31,9 +31,9 @@
 
     <div id="id01" class="modal1"><br>
         <form name="Z" id="rt">
-            <input type="text" id="fname" name="ime" placeholder="Unesi ime...">
-            <input type="text" id="tname" name="kontakt" placeholder="Unesi kontakt..."> <br>
-            <input type="text" id="dname" name="komentar" placeholder="Unesi komentar..."> <br><br>
+            <input type="text" id="fname" name="ime" placeholder="Unesite zakazano vreme u formatu D.M.YY ...">
+            <input type="text" id="tname" name="kontakt" placeholder="Unesite ime i kontakt ..."> <br>
+            <input type="text" id="dname" name="komentar" placeholder="Unesite komentar ..."> <br><br>
         </form>
 
 
@@ -41,8 +41,8 @@
 
         <table id="myTable">
             <tr>
-                <td>Ime<i class='fas fa-address-book fa-pull-left fa-1x'></i></td>
-                <td>Kontakt<i class='fas fa-mobile-alt fa-pull-left fa-1x'></i></td>
+                <td>Zakazano vreme<i class='far fa-clock fa-pull-left fa-1x'></i></td>
+                <td>Ime<i class='fas fa-address-book fa-pull-left fa-1x'></i><i class='fas fa-mobile-alt fa-pull-left fa-1x'></i> i Kontakt</td>
                 <td>Komentar<i class='fas fa-comments fa-pull-left fa-1x'></i></td>
                 <td>vreme unosa<i class='fas fa-calendar-alt fa-pull-left fa-1x'></i></td>
             </tr>
@@ -73,7 +73,7 @@
                 <label for="psw"><b>Password</b></label>
                 <input type="password" id="password" placeholder="Password" name="psw" required><br>
 
-                <button type="submit" id="dugme2" align="center" onclick="logIn();nikola()">Login</button><br>
+                <button type="submit" id="dugme2" align="center" onclick="logIn();setTimeout(nikola, 1000)">Login</button><br>
                 <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>

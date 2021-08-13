@@ -320,13 +320,16 @@ function nikola() {
     }
     console.log(niz);
 
-    let nadji = niz.find(element => element.substring(0, 4) === dana);
-    if (typeof nadji === 'undefined') {
-        alert("U danasnjem danu nemate obaveza");
-    }
-    let nasao = nadji.substring(0, 4);
+    const even = (element) => element.substring(0, 4) === dana;
+    console.log(niz.some(even));
 
-    if (nasao === dana) {
+    //let nadji = niz.find(element => element.substring(0, 4) === dana);
+    //if (typeof nadji === 'undefined') {
+    //    alert("U danasnjem danu nemate obaveza");
+    //}
+    //let nasao = nadji.substring(0, 4);
+
+    if (niz.some(even) === true) {
         alert("Pogledajte zabeleske jer u danasnjem danu imate obaveza");
     } else {
         alert("U danasnjem danu nemate obaveza");

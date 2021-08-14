@@ -132,6 +132,8 @@ function myFunction() {
 
         }
 
+        var ge;
+        var get;
         //BRISANJE kolone
         cell5.className = "ja";
         var zatvori = document.getElementsByClassName("ja");
@@ -139,18 +141,20 @@ function myFunction() {
             zatvori[i].addEventListener("click", function brisanje() {
                 this.parentElement.style.display = 'none';
 
+                ge = localStorage.getItem('objekat:' + (i + 1));
+                console.log(ge);
+                get = JSON.parse(ge);
+                console.log(get);
+                console.log(typeof get);
                 localStorage.removeItem('objekat:' + (i + 1));
-                console.log(obj);
-                for (let i = 0; i < localStorage.length; i++) {
 
-                    let redovi = localStorage.getItem('objekat:' + i);
-                    console.log(redovi);
-                    delete obj;
-                    let rodovi = JSON.parse(redovi);
-                    obj.push(rodovi);
+                const even = (element) => element === get;
+                console.log(obj.some(even));
+                if (obj.some(even) === false) {
+                    delete obj.Object;
                     console.log(obj);
-                    localStorage.setItem('objekat:' + counter, JSON.stringify(obj));
                 }
+
             });
         }
 
@@ -267,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 var hh = JSON.parse(f);
                 localStorage.removeItem(hh);
                 var counter = localStorage.getItem('counter', counter - 1);
-                localStorage.setItem('objekat:' + counter, JSON.stringify(objekat));
+                localStorage.setItem('objekat:' + counter, JSON.stringify());
             });
 
         }
@@ -310,6 +314,7 @@ let dana = dani.substring(0, 4);
 console.log(dana);
 
 var niz = [];
+var bojaNiz = [];
 
 function nikola() {
     let cerka = document.getElementById("myTable").rows;
@@ -317,21 +322,24 @@ function nikola() {
         let data = cerka[i].cells[0].innerHTML;
         console.log(data);
         niz.push(data);
+
+        let boja = cerka[i].style.textDecoration;
+        console.log(boja);
+        bojaNiz.push(boja);
+        console.log(bojaNiz);
     }
     console.log(niz);
 
     const even = (element) => element.substring(0, 4) === dana;
     console.log(niz.some(even));
 
-    //let nadji = niz.find(element => element.substring(0, 4) === dana);
-    //if (typeof nadji === 'undefined') {
-    //    alert("U danasnjem danu nemate obaveza");
-    //}
-    //let nasao = nadji.substring(0, 4);
+    const ev = (element) => element === "line-through";
+    console.log(bojaNiz.some(ev));
 
-    if (niz.some(even) === true) {
+    if (niz.some(even) === true && bojaNiz.some(ev) === false) {
         alert("Pogledajte zabeleske jer u danasnjem danu imate obaveza");
     } else {
         alert("U danasnjem danu nemate obaveza");
     }
+
 }

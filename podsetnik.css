@@ -25,41 +25,15 @@ tr:nth-child(even) {
 
 #fname,
 #tname,
-#dname,
-#oname {
+#dname {
     width: 50%;
     color: white;
     padding: 14px 20px;
-    margin: 8px 10;
+    margin: 3px 10;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: #3CBC8D;
-}
-
-.dugme1 {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 13px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #fa5830;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0px #999;
-}
-
-.dugme1:hover {
-    background-color: #d62f06
-}
-
-.dugme1:active {
-    background-color: #ece2df;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
 }
 
 @media only screen and (max-width:620px) {
@@ -120,7 +94,9 @@ tr:nth-child(even) {
     width: 7px;
 }
 
-.zavrsi {}
+.weatherWidget {
+    background-color: rgb(59, 57, 57);
+}
 
 html {
     background-color: rgb(59, 57, 57);
@@ -269,27 +245,158 @@ span.psw {
     }
 }
 
-
-/* Change styles for span and cancel button on extra small screens */
-
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
-}
-
 #obavestenje {
     float: right;
-    margin-right: 18%;
-    margin-top: 5%;
+    margin-right: 10%;
+    margin-top: 3%;
     font-size: 18px;
 }
 
 #prvidiv,
 #drugidiv {
+    text-align: center;
+}
+
+@media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    .menu,
+    .main,
+    .right {
+        width: 100%;
+    }
+}
+
+.btn-group .button {
+    background-color: rgb(48, 46, 46);
+    /* Green */
+    border: 2px solid rgb(73, 145, 95);
+    border-radius: 5px;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+    margin: 3px 0;
+    /* float: left;*/
+}
+
+.btn-group .button:not(:last-child) {
+    border-right: none;
+    /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+    background-color: #6cb672;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(70, 63, 63);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenava {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(70, 63, 63);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenava a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenava a:hover {
+    color: #f1f1f1;
+}
+
+.sidenava .closebtna {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenava {
+        padding-top: 15px;
+    }
+    .sidenava a {
+        font-size: 18px;
+    }
+}
+
+#izraz {
     text-align: center;
 }

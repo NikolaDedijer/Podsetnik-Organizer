@@ -29,14 +29,18 @@
     </div>
 
 
-    <div id="id01" class="modal1"><br>
+    <div id="id01" class="modal1">
         <form name="Z" id="rt">
-            <input type="text" id="fname" name="ime" placeholder="Unesite zakazano vreme u formatu D.M.YY-H.M ...">
-            <input type="text" id="tname" name="kontakt" placeholder="Unesite ime i kontakt ..."> <br>
-            <input type="text" id="dname" name="komentar" placeholder="Unesite komentar ..."> <br><br>
+            <input type="text" id="fname" name="ime" placeholder="Unesite zakazano vreme u formatu d.m.yy-h.m ...">
+            <input type="text" id="tname" name="kontakt" placeholder="Unesite ime i kontakt ...">
+            <input type="text" id="dname" name="komentar" placeholder="Unesite komentar ...">
         </form>
 
-
+        <div class="btn-group">
+            <button class="button" onclick="myFunction()">Sacuvaj<i class='fas fa-save fa-pull-left fa-1x'></i></button>
+            <button class="button" onclick="funkcijaF()">Novi unos</button>&nbsp;&nbsp;
+            <button class="button" onClick="window.location.href=window.location.href">Osvezi aplikaciju</button>
+        </div>
 
 
         <table id="myTable">
@@ -47,10 +51,7 @@
                 <td>vreme unosa<i class='fas fa-calendar-alt fa-pull-left fa-1x'></i></td>
             </tr>
         </table>
-        <br><br><br>
-
-        <button class="dugme1" type="button" onclick="myFunction()">Sacuvaj<i class='fas fa-save fa-pull-left fa-1x'></i></button>
-        <button class="dugme1" type="button" onclick="funkcijaF()">Novi unos</button>
+        <br>
     </div>
 
 
@@ -83,6 +84,16 @@
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
         </form>
+    </div>
+
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <p id="izraz" style="font-size: 20px; margin-top: 100px;">Pogledajte zabeleske jer u danasnjem danu imate obaveza!</p>
+    </div>
+    <div id="mySidenava" class="sidenava">
+        <a href="javascript:void(0)" class="closebtna" onclick="closeNav()">&times;</a>
+        <p id="izraz" style="font-size: 20px; margin-top: 100px;">U danasnjem danu nemate nikakvih obaveza.</p>
     </div>
 
 

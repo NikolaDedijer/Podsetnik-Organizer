@@ -72,6 +72,14 @@ function myFunction() {
     var poljeTri = document.getElementById("dname").value;
     if (polje === '' || poljeDva === '' || poljeTri === '' || polje === '' && poljeDva === '' || polje === '' && poljeTri === '' || poljeDva === '' && poljeTri === '') {
         alert("Niste popunili sva polja!");
+        let polje = document.querySelectorAll('input[type="text"]');
+        for (let i = 0; i < polje.length; i++) {
+            if (polje[i] = " ") {
+                i.style.backgroundColor = "red";
+            } else {
+                i.style.backgroundColor = "#3CBC8D";
+            }
+        }
 
     } else {
         table = document.getElementById("myTable");
@@ -337,9 +345,22 @@ function nikola() {
     console.log(bojaNiz.some(ev));
 
     if (niz.some(even) === true && bojaNiz.some(ev) === false) {
-        alert("Pogledajte zabeleske jer u danasnjem danu imate obaveza");
+        openNav();
     } else {
-        alert("U danasnjem danu nemate obaveza");
+        openNava();
     }
 
+}
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "350px";
+}
+
+function openNava() {
+    document.getElementById("mySidenava").style.width = "350px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenava").style.width = "0";
 }

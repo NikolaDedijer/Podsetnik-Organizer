@@ -67,19 +67,11 @@ function setInputBackground() {
 //funkcija za dodavanje reda sa unetim vrednostima i dodavanje trenutnog datuma i vremena
 function myFunction() {
 
-    var polje = document.getElementById("fname").value;
-    var poljeDva = document.getElementById("tname").value;
-    var poljeTri = document.getElementById("dname").value;
+    let polje = document.getElementById("fname").value;
+    let poljeDva = document.getElementById("tname").value;
+    let poljeTri = document.getElementById("dname").value;
     if (polje === '' || poljeDva === '' || poljeTri === '' || polje === '' && poljeDva === '' || polje === '' && poljeTri === '' || poljeDva === '' && poljeTri === '') {
         alert("Niste popunili sva polja!");
-        let polje = document.querySelectorAll('input[type="text"]');
-        for (let i = 0; i < polje.length; i++) {
-            if (polje[i] = " ") {
-                i.style.backgroundColor = "red";
-            } else {
-                i.style.backgroundColor = "#3CBC8D";
-            }
-        }
 
     } else {
         table = document.getElementById("myTable");

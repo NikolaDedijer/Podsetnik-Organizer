@@ -1,0 +1,405 @@
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 0px solid #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d0d7da;
+    border-radius: 5px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#id01 {
+    border-radius: 5px;
+    background-color: rgb(59, 57, 57);
+    padding: 20px;
+}
+
+#fname,
+#tname,
+#dname {
+    width: 50%;
+    color: white;
+    padding: 14px 20px;
+    margin: 3px 10;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3CBC8D;
+}
+
+@media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    .menu,
+    .main,
+    .right {
+        width: 100%;
+    }
+}
+
+.ja {
+    width: 5px;
+}
+
+.ja:hover {
+    background: #3CBC8D;
+}
+
+#cell6 {
+    width: 5px;
+}
+
+#cell6:hover {
+    background: #3CBC8D;
+}
+
+.fff:hover {
+    background-color: #807d7c
+}
+
+.fff:active {
+    background-color: #ece2df;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.far,
+.fas,
+.fa {
+    color: #04AA6D;
+}
+
+
+/* When clicked on, add a background color and strike out text */
+
+.row.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+
+/* Add a "checked" mark when clicked on */
+
+.row.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+.weatherWidget {
+    background-color: rgb(59, 57, 57);
+}
+
+html {
+    background-color: rgb(59, 57, 57);
+}
+
+p {
+    color: rgb(212, 209, 209);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Full-width input fields */
+
+#username[type=text],
+#username[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#password[type=text],
+#password[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+/* Set a style for all buttons */
+
+#dugme2 {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 40%;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+}
+
+#dugme2:hover {
+    opacity: 0.8;
+}
+
+
+/* Extra styles for the cancel button */
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+
+/* Center the image and position the close button */
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 23%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: non;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 70%;
+    /* Full width */
+    height: 800%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: -1px;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 1s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+#obavestenje {
+    float: right;
+    margin-right: 10%;
+    margin-top: 3%;
+    font-size: 18px;
+}
+
+#prvidiv,
+#drugidiv {
+    text-align: center;
+}
+
+@media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    .menu,
+    .main,
+    .right {
+        width: 100%;
+    }
+}
+
+.btn-group .button {
+    background-color: rgb(48, 46, 46);
+    /* Green */
+    border: 2px solid rgb(73, 145, 95);
+    border-radius: 5px;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+    margin: 3px 0;
+    /* float: left;*/
+}
+
+.btn-group .button:hover {
+    background-color: #6cb672;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(70, 63, 63);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenava {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(70, 63, 63);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenava a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenava a:hover {
+    color: #f1f1f1;
+}
+
+.sidenava .closebtna {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenava {
+        padding-top: 15px;
+    }
+    .sidenava a {
+        font-size: 18px;
+    }
+}
+
+#izraz {
+    text-align: center;
+}

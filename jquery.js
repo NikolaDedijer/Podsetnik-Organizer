@@ -3,6 +3,7 @@ $(document).ready(function() {
         var value = $(this).val().toLowerCase();
         $(".fff").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
         });
     });
 });

@@ -113,22 +113,28 @@ body {
 
 #username[type=text],
 #username[type=password] {
-    width: 100%;
+    /*width: 100%;*/
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 25;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    text-align: center;
 }
 
 #password[type=text],
 #password[type=password] {
-    width: 100%;
+    /* width: 100%;*/
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 26;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    text-align: center;
+}
+
+label {
+    margin-left: 50px;
 }
 
 
@@ -174,6 +180,7 @@ img.avatar {
 .container {
     padding: 16px;
     background-color: #b9b5b5;
+    position: relative;
 }
 
 span.psw {
@@ -459,7 +466,12 @@ body {
     padding: 6px;
     margin-top: 25px;
     font-size: 17px;
+    border-radius: 3px;
     border-color: 3px goldenrod;
     width: 200px;
     height: 30px;
+}
+
+#red {
+    height: 50px;
 }

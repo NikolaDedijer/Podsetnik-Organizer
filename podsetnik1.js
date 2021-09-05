@@ -24,7 +24,6 @@ function funkcijaF() {
     document.getElementById("rt").reset();
 }
 
-
 //funkcija da oboji prazno input polje
 document.querySelectorAll('input[type="text"]').forEach(e => {
     e.addEventListener('focusout', setInputBackground)
